@@ -1,18 +1,23 @@
 package store;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Promotion {
     private String name;
     private int buyProduct;
     private int getProduct;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public Promotion(String name, String buy, String get, String start_date, String end_date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         this.name = name;
         this.buyProduct = Integer.parseInt(buy);
         this.getProduct = Integer.parseInt(get);
-        this.startDate = start_date;
-        this.endDate = end_date;
+        this.startDate = LocalDate.parse(start_date, formatter);
+        this.endDate = LocalDate.parse(end_date, formatter);
     }
 
     public String getName() {
@@ -27,11 +32,11 @@ public class Promotion {
         return getProduct;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 }
