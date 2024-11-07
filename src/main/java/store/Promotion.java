@@ -2,15 +2,15 @@ package store;
 
 public class Promotion {
     private String name;
-    private int buy;
-    private int get;
+    private int buyProduct;
+    private int getProduct;
     private String startDate;
     private String endDate;
 
     public Promotion(String name, String buy, String get, String start_date, String end_date) {
         this.name = name;
-        this.buy = Integer.parseInt(buy);
-        this.get = Integer.parseInt(get);
+        this.buyProduct = Integer.parseInt(buy);
+        this.getProduct = Integer.parseInt(get);
         this.startDate = start_date;
         this.endDate = end_date;
     }
@@ -19,12 +19,12 @@ public class Promotion {
         return name;
     }
 
-    public int getBuy() {
-        return buy;
+    public int getBuyProduct() {
+        return buyProduct;
     }
 
-    public int getGet() {
-        return get;
+    public int getGetProduct() {
+        return getProduct;
     }
 
     public String getStartDate() {
