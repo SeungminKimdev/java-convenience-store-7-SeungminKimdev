@@ -56,4 +56,22 @@ public class ProductManager {
             throw new IllegalArgumentException("products 파일에 형식이 맞지 않는 값이 있습니다.");
         }
     }
+
+    public Product findProduct(String productName) {
+        for (Product product : products) {
+            if (product.getName().equals(productName)) {
+                return product;
+            }
+        }
+        throw new IllegalArgumentException("상품이 없습니다.");
+    }
+
+    public Promotion findPromotion(String promotionName) {
+        for (Promotion promotion : promotions) {
+            if (promotion.getName().equals(promotionName)) {
+                return promotion;
+            }
+        }
+        throw new IllegalArgumentException("없는 프로모션입니다.");
+    }
 }
