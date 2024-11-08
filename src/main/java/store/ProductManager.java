@@ -59,7 +59,7 @@ public class ProductManager {
 
     public Product findProduct(String productName) {
         for (Product product : products) {
-            if (product.getName().equals(productName)) {
+            if (product.getName().equals(productName) && product.getQuantity() > 0) {
                 return product;
             }
         }
