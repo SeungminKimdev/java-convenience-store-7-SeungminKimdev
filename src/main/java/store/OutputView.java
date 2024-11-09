@@ -23,8 +23,10 @@ public class OutputView {
             System.out.printf("- %s %s %d개", name, formattedPrice, quantity);
         }
 
-        if (promotion != null) {
-            System.out.printf(" %s\n", promotion);
+        if (!promotion.equals("null")) {
+            System.out.printf(" %s", promotion);
         }
+
+        System.out.println();
     }
 }
