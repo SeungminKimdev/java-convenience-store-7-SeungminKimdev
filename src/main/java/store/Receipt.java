@@ -18,8 +18,8 @@ public class Receipt {
         this.membershipDiscount = 0;
     }
 
-    public void addPurchasedProduct(String productName, String quantity, String price) {
-        Product product = new Product(productName, quantity, price, "null");
+    public void addPurchasedProduct(String productName, int quantity, int price) {
+        Product product = new Product(productName, Integer.toString(quantity), Integer.toString(price), "null");
         purchasedProducts.add(product);
     }
 
