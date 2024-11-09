@@ -23,6 +23,11 @@ public class Receipt {
         purchasedProducts.add(product);
     }
 
+    public void addFreeProduct(String productName, String quantity) {
+        Product product = new Product(productName, quantity, "0", "null");
+        freeProducts.add(product);
+    }
+
     public void addTotalPurchaseAmount(int totalPurchaseAmount) {
         this.totalPurchaseAmount += totalPurchaseAmount;
     }
