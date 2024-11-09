@@ -9,25 +9,27 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import store.model.Product;
+import store.model.Receipt;
 import store.view.OutputView;
 
 class OutputViewTest {
     OutputView outputView;
+    Receipt receipt;
     List<Product> productList;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @BeforeEach
     void setUp(){
         outputView = new OutputView();
+        receipt = new Receipt();
         productList = new ArrayList<>();
-        productList.add(new Product("Test", "1000", "4", "프로모션"));
-        productList.add(new Product("Test", "900", "0", "null"));
-
-        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     @Test
-    public void 정상_출력_테스트() {
+    public void 상품목록_정상_출력_테스트() {
+        System.setOut(new PrintStream(outputStreamCaptor));
+        productList.add(new Product("Test", "1000", "4", "프로모션"));
+        productList.add(new Product("Test", "900", "0", "null"));
         outputView.showProducts(productList);
 
         String capturedOutput = outputStreamCaptor.toString().trim();
@@ -38,5 +40,13 @@ class OutputViewTest {
 
         // 실제 출력된 결과와 예상 결과를 비교
         assertThat(outputStreamCaptor.toString().trim()).isEqualTo(expectedOutput);
+    }
+
+    @Test
+    public void 영수증_정상_출력_테스트() {
+        receipt.addPurchasedProduct("콜라", 5, 1000);
+        receipt.addFreeProduct("콜라", 4);
+
+        outputView.showReceipt(receipt);
     }
 }

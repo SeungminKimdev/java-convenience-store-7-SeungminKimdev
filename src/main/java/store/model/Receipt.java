@@ -23,8 +23,8 @@ public class Receipt {
         purchasedProducts.add(product);
     }
 
-    public void addFreeProduct(String productName, String quantity) {
-        Product product = new Product(productName, quantity, "0", "null");
+    public void addFreeProduct(String productName, int quantity) {
+        Product product = new Product(productName, Integer.toString(quantity), "0", "null");
         freeProducts.add(product);
     }
 
@@ -33,11 +33,11 @@ public class Receipt {
     }
 
     public void addPromotionDiscount(int promotionDiscount) {
-        this.promotionDiscount -= promotionDiscount;
+        this.promotionDiscount += promotionDiscount;
     }
 
     public void addMembershipDiscount(int membershipDiscount) {
-        this.membershipDiscount -= membershipDiscount;
+        this.membershipDiscount += membershipDiscount;
     }
 
     public List<Product> getPurchasedProducts() {
