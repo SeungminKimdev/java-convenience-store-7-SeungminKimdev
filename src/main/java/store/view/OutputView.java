@@ -1,6 +1,7 @@
-package store;
+package store.view;
 
 import java.util.List;
+import store.model.Product;
 
 public class OutputView {
     public void showProducts(List<Product> products) {

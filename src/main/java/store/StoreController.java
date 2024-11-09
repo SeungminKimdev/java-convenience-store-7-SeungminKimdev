@@ -1,5 +1,10 @@
 package store;
 
+import store.model.Product;
+import store.model.ProductManager;
+import store.model.Receipt;
+import store.view.InputView;
+
 public class StoreController {
     private InputView inputView;
     private ProductManager productManager;

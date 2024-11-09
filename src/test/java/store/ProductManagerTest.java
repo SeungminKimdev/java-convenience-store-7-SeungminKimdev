@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import store.model.Product;
+import store.model.ProductManager;
+import store.model.Promotion;
 
 class ProductManagerTest {
     private ProductManager manager;
