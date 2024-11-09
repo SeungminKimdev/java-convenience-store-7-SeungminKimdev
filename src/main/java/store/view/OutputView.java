@@ -5,6 +5,12 @@ import store.model.Product;
 import store.model.Receipt;
 
 public class OutputView {
+    public void announcement() {
+        System.out.println("안녕하세요. W편의점입니다.");
+        System.out.println("현재 보유하고 있는 상품입니다.");
+        System.out.println();
+    }
+
     public void showProducts(List<Product> products) {
         for (Product product : products) {
             printProducts(product);
@@ -53,5 +59,6 @@ public class OutputView {
         System.out.printf("행사할인\t\t\t\t\t\t\t%s\n", "-" + String.format("%,d", promotionDiscount));
         System.out.printf("멤버십할인\t\t\t\t\t\t\t%s\n", "-" + String.format("%,d", membershipDiscount));
         System.out.printf("내실돈\t\t\t\t\t\t\t%,d\n", (totalPurchaseAmount - promotionDiscount - membershipDiscount));
+        System.out.println();
     }
 }

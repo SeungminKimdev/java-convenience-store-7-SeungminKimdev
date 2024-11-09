@@ -4,16 +4,24 @@ import store.model.Product;
 import store.model.ProductManager;
 import store.model.Receipt;
 import store.view.InputView;
+import store.view.OutputView;
 
 public class StoreController {
     private InputView inputView;
+    private OutputView outputView;
     private ProductManager productManager;
     private Receipt receipt;
 
     public StoreController() {
         inputView = new InputView();
+        outputView = new OutputView();
         productManager = new ProductManager();
         receipt = new Receipt();
+    }
+
+    public void openStore() {
+        outputView.announcement();
+        purchaseProduct();
     }
 
     private void purchaseProduct() {
