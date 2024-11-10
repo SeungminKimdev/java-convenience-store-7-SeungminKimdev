@@ -24,7 +24,6 @@ public class StoreController {
             outputView.announcement();
             outputView.showProducts(productManager.getProducts());
             purchaseProduct();
-
             inputView.isMembershipDiscountApplied();
             outputView.showReceipt(receipt);
 
@@ -50,6 +49,12 @@ public class StoreController {
 
     private boolean checkAdditionalPurchase() {
         String input = inputView.isAdditionalPurchase();
-        return input.equals("Y");
+        while (true) {
+            if (input.equals("Y") || input.equals("N")) {
+                return input.equals("Y");
+            }
+            System.out.println("[ERROR] 잘못된 입력입니다. 다시 입력해 주세요.\n");
+            input = inputView.isAdditionalPurchase();
+        }
     }
 }
