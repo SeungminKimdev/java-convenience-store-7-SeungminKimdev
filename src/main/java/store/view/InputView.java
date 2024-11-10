@@ -19,6 +19,7 @@ public class InputView {
     }
 
     public String isMembershipDiscountApplied() {
+        System.out.println();
         System.out.println("멤버십 할인을 받으시겠습니까? (Y/N)");
         return Console.readLine();
     }

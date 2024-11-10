@@ -43,6 +43,7 @@ public class OutputView {
         List<Product> purchasedProducts = receipt.getPurchasedProducts();
         List<Product> freeProducts = receipt.getFreeProducts();
 
+        System.out.println();
         System.out.println("==============W 편의점================");
         System.out.println("상품명\t\t\t\t수량\t\t\t금액");
         for (Product product : purchasedProducts) {
