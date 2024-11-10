@@ -74,4 +74,12 @@ public class ProductManager {
         }
         throw new IllegalArgumentException("없는 프로모션입니다.");
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public List<Promotion> getPromotions() {
+        return promotions;
+    }
 }
