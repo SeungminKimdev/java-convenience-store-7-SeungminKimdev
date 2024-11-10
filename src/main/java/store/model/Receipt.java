@@ -19,12 +19,12 @@ public class Receipt {
     }
 
     public void addPurchasedProduct(String productName, int quantity, int price) {
-        Product product = new Product(productName, Integer.toString(quantity), Integer.toString(price), "null");
+        Product product = new Product(productName, Integer.toString(price), Integer.toString(quantity),"null");
         purchasedProducts.add(product);
     }
 
     public void addFreeProduct(String productName, int quantity) {
-        Product product = new Product(productName, Integer.toString(quantity), "0", "null");
+        Product product = new Product(productName, "0", Integer.toString(quantity), "null");
         freeProducts.add(product);
     }
 
