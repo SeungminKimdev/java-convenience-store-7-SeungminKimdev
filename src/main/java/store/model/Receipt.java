@@ -36,8 +36,8 @@ public class Receipt {
         this.promotionDiscount += promotionDiscount;
     }
 
-    public void addMembershipDiscount(int membershipDiscount) {
-        this.membershipDiscount += membershipDiscount;
+    public void setMembershipDiscount(int membershipDiscount) {
+        this.membershipDiscount = membershipDiscount;
     }
 
     public List<Product> getPurchasedProducts() {

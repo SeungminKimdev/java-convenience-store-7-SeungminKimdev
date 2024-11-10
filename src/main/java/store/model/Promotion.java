@@ -44,7 +44,7 @@ public class Promotion {
 
     public boolean checkUsableDate() {
         LocalDate currentDate = DateTimes.now().toLocalDate();
-        return ((currentDate.isEqual(startDate) || currentDate.isAfter(endDate)) &&
+        return ((currentDate.isEqual(startDate) || currentDate.isAfter(startDate)) &&
                 (currentDate.isEqual(endDate) || currentDate.isBefore(endDate)));
     }
 }

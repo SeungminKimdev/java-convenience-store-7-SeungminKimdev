@@ -18,6 +18,9 @@ public class ProductManager {
     private void loadProducts() {
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/products.md"))) {
             String line;
+            String beforeProductName = "";
+            String beforeProdcutPromotion = "";
+            String beforeProductPrice = "";
 
             if ((line = br.readLine()) != null) {
                 // 첫 줄 건너뛰기
@@ -27,6 +30,12 @@ public class ProductManager {
                 if (!line.trim().isEmpty()) {
                     String[] productInfo = line.split(",");
                     products.add(new Product(productInfo[0], productInfo[1], productInfo[2], productInfo[3]));
+                    if (!beforeProductName.isEmpty() && !beforeProductName.equals(productInfo[0]) && !beforeProdcutPromotion.equals("null")) {
+                        products.add(new Product(beforeProductName, beforeProductPrice, "0", "null"));
+                    }
+                    beforeProductName = productInfo[0];
+                    beforeProductPrice = productInfo[1];
+                    beforeProdcutPromotion = productInfo[3];
                 }
             }
         } catch (IOException e) {
@@ -77,9 +86,5 @@ public class ProductManager {
 
     public List<Product> getProducts() {
         return products;
-    }
-
-    public List<Promotion> getPromotions() {
-        return promotions;
     }
 }
