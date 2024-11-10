@@ -20,8 +20,18 @@ public class StoreController {
     }
 
     public void openStore() {
-        outputView.announcement();
-        purchaseProduct();
+        while (true) {
+            outputView.announcement();
+            outputView.showProducts(productManager.getProducts());
+            purchaseProduct();
+
+            inputView.isMembershipDiscountApplied();
+            outputView.showReceipt(receipt);
+
+            if (!checkAdditionalPurchase()) {
+                break;
+            }
+        }
     }
 
     private void purchaseProduct() {
@@ -33,8 +43,13 @@ public class StoreController {
             // 한번에 구매 가능한 경우
             if (purchased.getQuantity() >= purchaseAmount) {
                 purchased.setQuantity(purchased.getQuantity() - purchaseAmount);
-                receipt.addPurchasedProduct(purchased.getName(), purchased.getQuantity(), purchased.getPrice());
+                receipt.addPurchasedProduct(purchased.getName(), purchaseAmount, purchased.getPrice());
             }
         }
+    }
+
+    private boolean checkAdditionalPurchase() {
+        String input = inputView.isAdditionalPurchase();
+        return input.equals("Y");
     }
 }

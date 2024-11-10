@@ -54,12 +54,13 @@ public class OutputView {
         }
         System.out.println("====================================");
         int totalPurchaseAmount = receipt.getTotalPurchaseAmount();
+        int totalPurchasePrice = receipt.getTotalPurchasePrice();
         int promotionDiscount = receipt.getPromotionDiscount();
         int membershipDiscount = receipt.getMembershipDiscount();
-        System.out.printf("총구매액\t\t\t\t%d\t\t\t%,d\n", purchasedProducts.size(), totalPurchaseAmount);
+        System.out.printf("총구매액\t\t\t\t%d\t\t\t%,d\n", totalPurchaseAmount, totalPurchasePrice);
         System.out.printf("행사할인\t\t\t\t\t\t\t%s\n", "-" + String.format("%,d", promotionDiscount));
         System.out.printf("멤버십할인\t\t\t\t\t\t\t%s\n", "-" + String.format("%,d", membershipDiscount));
-        System.out.printf("내실돈\t\t\t\t\t\t\t%,d\n", (totalPurchaseAmount - promotionDiscount - membershipDiscount));
+        System.out.printf("내실돈\t\t\t\t\t\t\t%,d\n", (totalPurchasePrice - promotionDiscount - membershipDiscount));
         System.out.println();
     }
 }
