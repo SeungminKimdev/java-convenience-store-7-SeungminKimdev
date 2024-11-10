@@ -1,5 +1,7 @@
 package store.model;
 
+import camp.nextstep.edu.missionutils.DateTimes;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -38,5 +40,11 @@ public class Promotion {
 
     public LocalDate getEndDate() {
         return endDate;
+    }
+
+    public boolean checkUsableDate() {
+        LocalDate currentDate = DateTimes.now().toLocalDate();
+        return ((currentDate.isEqual(startDate) || currentDate.isAfter(endDate)) &&
+                (currentDate.isEqual(endDate) || currentDate.isBefore(endDate)));
     }
 }
